@@ -1,5 +1,6 @@
 package com.example.tradereportingengine.service;
 
+import com.example.tradereportingengine.exceptions.XmlParsingException;
 import com.example.tradereportingengine.model.TradeEntity;
 import org.hamcrest.Matchers;
 import org.junit.jupiter.api.BeforeEach;
@@ -9,6 +10,7 @@ import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.mockito.MockitoAnnotations;
 import org.w3c.dom.Document;
+import org.xml.sax.SAXException;
 
 import javax.xml.parsers.DocumentBuilder;
 import javax.xml.parsers.DocumentBuilderFactory;
@@ -52,7 +54,7 @@ public class XmlParsingServiceTest {
 
         filePathList.add(filePath1);
 
-        assertThrows(Exception.class, () -> xmlParsingService.parseXmlFiles(filePathList));
+        assertThrows(XmlParsingException.class, () -> xmlParsingService.parseXmlFiles(filePathList));
     }
 
     @Test
