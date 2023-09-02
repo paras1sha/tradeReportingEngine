@@ -1,28 +1,18 @@
-package com.example.tradereportingengine.service;
+package com.trade.tradereportingengine.service;
 
-import com.example.tradereportingengine.exceptions.XmlParsingException;
-import com.example.tradereportingengine.model.TradeEntity;
-import org.hamcrest.Matchers;
-import org.junit.jupiter.api.BeforeEach;
+import com.trade.tradereportingengine.exceptions.XmlParsingException;
+import com.trade.tradereportingengine.model.TradeEntity;
 import org.junit.jupiter.api.Test;
-import org.mockito.ArgumentMatchers;
-import org.mockito.InjectMocks;
-import org.mockito.Mock;
-import org.mockito.MockitoAnnotations;
-import org.w3c.dom.Document;
-import org.xml.sax.SAXException;
-
-import javax.xml.parsers.DocumentBuilder;
-import javax.xml.parsers.DocumentBuilderFactory;
+import org.springframework.test.context.ActiveProfiles;
 
 import java.util.ArrayList;
 import java.util.List;
 
-import static org.hamcrest.Matchers.any;
-import static org.junit.jupiter.api.Assertions.*;
-import static org.mockito.Mockito.mock;
-import static org.mockito.Mockito.when;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertThrows;
+import static org.junit.jupiter.api.Assertions.assertNotNull;
 
+@ActiveProfiles("test")
 public class XmlParsingServiceTest {
 
     @Test

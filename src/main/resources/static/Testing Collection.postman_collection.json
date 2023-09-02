@@ -1,0 +1,83 @@
+{
+	"info": {
+		"_postman_id": "9b42e295-85f4-439b-abf2-c3a5f4ae5b6e",
+		"name": "Testing Collection",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "29473473"
+	},
+	"item": [
+		{
+			"name": "Filter and fetch",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/trade/reportingEngine/filter/fetchAll",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"trade",
+						"reportingEngine",
+						"filter",
+						"fetchAll"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Save All Data",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "[\r\n    \"event0.xml\",\r\n    \"event1.xml\",\r\n    \"event2.xml\",\r\n    \"event3.xml\",\r\n    \"event4.xml\",\r\n    \"event5.xml\",\r\n    \"event6.xml\",\r\n    \"event7.xml\"\r\n]\r\n",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/trade/reportingEngine/saveAll",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"trade",
+						"reportingEngine",
+						"saveAll"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Fetch All Without Filter",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/trade/reportingEngine/fetchAll",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"trade",
+						"reportingEngine",
+						"fetchAll"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

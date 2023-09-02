@@ -1,0 +1,114 @@
+swagger: "2.0"
+info:
+  title: Trade Reporting Engine
+  description: Application use to store and fetch data by reading multiple XML files and Filter the response based on specific criteria
+  version: 1.0.0
+host: http://localhost:8080/trade/reportingEngine
+schemes:
+  - https
+paths:
+  /fetchAll:
+    get:
+      tags:
+        - TradeReportingEngineRequest
+      description: Fetch all the data stored in db
+      parameters:
+        - name: fetchAll
+      responses:
+        200:
+          description: DB results returned
+          schema:
+            type: array
+            example: [
+              {
+                "id": 6,
+                "buyerParty": "EMU_BANK",
+                "sellerParty": "BISON_BANK",
+                "premiumAmount": 500.00,
+                "premiumCurrency": "USD"
+              },
+              {
+                "id": 7,
+                "buyerParty": "EMU_BANK",
+                "sellerParty": "BISON_BANK",
+                "premiumAmount": 150.00,
+                "premiumCurrency": "AUD"
+              },
+              {
+                "id": 8,
+                "buyerParty": "EMU_BANK",
+                "sellerParty": "BISON_BANK",
+                "premiumAmount": 600.00,
+                "premiumCurrency": "USD"
+              }
+            ]
+  /saveALl:
+    post:
+      tags:
+        - TradeReportingEngineRequest
+      description: Save all the data from mentioned xmlfiles in db
+      parameters:
+        - name: []
+          in: body
+          required: true
+          schema:
+            type:
+              object
+            example:  [
+              "event0.xml",
+              "event1.xml",
+              "event2.xml",
+              "event3.xml",
+              "event4.xml",
+              "event5.xml",
+              "event6.xml",
+              "event7.xml"
+            ]
+      responses:
+        200:
+          description: DB results returned
+          schema:
+            type: string
+            example: All entries saved
+        500:
+          description: Internal Server error
+        400:
+          description: Error Parsing files
+  /filter/fetchAll:
+    get:
+      tags:
+        - TradeReportingEngineRequest
+      description: Retrieve the filtered data from DB and show in response
+      responses:
+        200:
+          description: Db results returned
+          schema:
+            type: array
+            example: [
+              {
+                "id": 6,
+                "buyerParty": "EMU_BANK",
+                "sellerParty": "BISON_BANK",
+                "premiumAmount": 500.00,
+                "premiumCurrency": "USD"
+              },
+              {
+                "id": 7,
+                "buyerParty": "EMU_BANK",
+                "sellerParty": "BISON_BANK",
+                "premiumAmount": 150.00,
+                "premiumCurrency": "AUD"
+              },
+              {
+                "id": 8,
+                "buyerParty": "EMU_BANK",
+                "sellerParty": "BISON_BANK",
+                "premiumAmount": 600.00,
+                "premiumCurrency": "USD"
+              }
+            ]
+
+
+
+
+

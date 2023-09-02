@@ -1,9 +1,9 @@
-package com.example.tradereportingengine.service;
+package com.trade.tradereportingengine.service;
 
-import com.example.tradereportingengine.Utils.LoggerInstance;
-import com.example.tradereportingengine.exceptions.XmlParsingException;
-import com.example.tradereportingengine.model.TradeEntity;
-import com.example.tradereportingengine.repository.TradeRepository;
+import com.trade.tradereportingengine.Utils.LoggerInstance;
+import com.trade.tradereportingengine.exceptions.XmlParsingException;
+import com.trade.tradereportingengine.model.TradeEntity;
+import com.trade.tradereportingengine.repository.TradeRepository;
 import org.springframework.stereotype.Service;
 import org.w3c.dom.Document;
 import org.xml.sax.SAXException;
@@ -27,22 +27,31 @@ import java.util.Map;
 public class XmlParsingService {
     private final TradeRepository tradeRepository;
     private final Map<String, String> xpathExpressions = new HashMap<>();
-
     public XmlParsingService(TradeRepository tradeRepository) {
         this.tradeRepository = tradeRepository;
-        // Define XPath expressions for extracting data
+        // Define XPath expressions for extracting data.
+        // In future it can be moved to properties in case more are needed
         xpathExpressions.put("buyerParty", "//buyerPartyReference/@href");
         xpathExpressions.put("sellerParty", "//sellerPartyReference/@href");
         xpathExpressions.put("premiumAmount", "//paymentAmount/amount");
         xpathExpressions.put("premiumCurrency", "//paymentAmount/currency");
-        // Add more expressions as needed
     }
 
+    /**
+     * Parse and store the xml files in DB using repository
+     * @param filePaths
+     */
     public void parseAndStoreXmlFiles(List<String> filePaths) {
         List<TradeEntity> tradeEntities = parseXmlFiles(filePaths);
         tradeRepository.saveAll(tradeEntities);
     }
 
+    /**
+     * Receive the list of xml file paths in absolute form
+     * Use Simple parsing logic to fetch the specific fields using xpath expressions
+     * @param filePaths
+     * @return List<TradeEntity>
+     */
     public List<TradeEntity> parseXmlFiles(List<String> filePaths) {
         List<TradeEntity> tradeEntities = new ArrayList<>();
         DocumentBuilderFactory factory = DocumentBuilderFactory.newInstance();

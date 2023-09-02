@@ -19,6 +19,9 @@ fields based on pre-defined XPath expressions and dynamically sets them in Trade
 An TradeFilterService is implemented to filter entities stored in database based on specified criteria such as seller
 party, premium currency, and anagram checks. Only events meeting all criteria are included in the filtered result.
 
+5. Data Runner (TradeDataRunner):
+This class use tradeRepository to fetch all the data will specified fileNames. This is being used in relation with Post request
+
 5. API Endpoint (TradeController):
 The Spring Boot API is exposed through an TradeController. It provides HTTP endpoints for creating and retrieving entities.
 Entities are stored in the database, and the filtered results are returned in JSON format.

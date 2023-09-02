@@ -1,6 +1,6 @@
-package com.example.tradereportingengine.repository;
+package com.trade.tradereportingengine.repository;
 
-import com.example.tradereportingengine.model.TradeEntity;
+import com.trade.tradereportingengine.model.TradeEntity;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 

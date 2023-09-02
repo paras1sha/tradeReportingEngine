@@ -1,4 +1,4 @@
-package com.example.tradereportingengine.Utils;
+package com.trade.tradereportingengine.Utils;
 
 import java.util.logging.ConsoleHandler;
 import java.util.logging.Handler;
