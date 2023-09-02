@@ -4,11 +4,12 @@ This service offers a robust solution for processing XML event data, making it a
 via a well-documented API endpoint.
 
 ## Usage Prerequisite
-* Read design implementation document before to learn more about the code implementation.
+* Read design implementation document before to learn more about the code implementation. [Design Implementation](Design%20Implementation)
 * Get families with API request by reading [TradeReportingEngine_Swagger.yaml](src%2Fmain%2Fresources%2FTradeReportingEngine_Swagger.yaml)
 * Install JDK 17
 * Install Maven 3.9.2
-* Install Postman
+* Install Postman 
+* Import collection -> [Testing Collection.postman_collection.json](src%2Fmain%2Fresources%2Fstatic%2FTesting%20Collection.postman_collection.json)
 
 ## Steps to execute the code
 
@@ -24,6 +25,10 @@ via a well-documented API endpoint.
 * You can also run the second request (Fetch All Without Filter) -> Response should should all entries saved in entries
 * To filter this data and fetch in a response, use 3rd request (Filter and fetch) 
 * Response should bring the filtered response.
+
+* Test Files:  [TradeFilterServiceTest.java](src%2Ftest%2Fjava%2Fcom%2Ftrade%2Ftradereportingengine%2Fservice%2FTradeFilterServiceTest.java)
+[XmlParsingServiceTest.java](src%2Ftest%2Fjava%2Fcom%2Ftrade%2Ftradereportingengine%2Fservice%2FXmlParsingServiceTest.java)
+[TradeReportingEngineIntegrationTest.java](src%2Ftest%2Fjava%2Fcom%2Ftrade%2Ftradereportingengine%2FTradeReportingEngineIntegrationTest.java)
 
 ## Assumption made on this project
 
